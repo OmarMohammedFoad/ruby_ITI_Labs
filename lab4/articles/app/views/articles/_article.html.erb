@@ -1,0 +1,42 @@
+<div id="<%= dom_id article %>" class="article-card">
+  <div class=" p-4  border rounded-lg shadow-lg">
+    <h3 class="text-xl font-semibold ">
+      <%= link_to article.title, article_path(article), class: "hover:text-blue-600" %>
+    </h3>
+
+ <div class="flex justify-between items-center " >
+   <div>
+      <div class="flex items-center text-sm ">
+      <strong>Author:</strong>
+      <span class="ml-1"><%= article.user.email %></span>
+      <span class="mx-2">•</span>
+      <strong>Reports:</strong>
+      <span class="ml-1"><%= article.report_count %></span>
+    </div>
+
+    <div class="">
+      <p class="line-clamp-3">
+        <%= truncate(article.content, length: 150) %>
+      </p>
+    </div>
+  </div>
+
+    <div class="flex gap-2 mt-4">
+      <%= link_to "View", article_path(article), 
+                  class: "btn btn-sm btn-outline-primary" %>
+      
+      <% if can? :update, article %>
+        <%= link_to "Edit", edit_article_path(article), 
+                    class: "btn btn-sm btn-outline-secondary" %>
+      <% end %>
+      
+      <% if can? :destroy, article %>
+        <%= button_to "Delete", article_path(article), 
+                      method: :delete,
+                      confirm: "Are you sure?",
+                      class: "btn btn-sm btn-outline-danger" %>
+      <% end %>
+    </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,46 @@
+<% if notice %>
+  <div class="alert alert-success shadow-lg mb-4">
+    <span><%= notice %></span>
+  </div>
+<% end %>
+
+<div class="card bg-base-100 shadow-md p-6 max-w-2xl mx-auto space-y-4">
+  <div>
+     <% if @article.avatar.present? %>
+    <div class="flex justify-center">
+      <%= image_tag @article.avatar.url, class: "rounded-lg max-h-64 object-contain" %>
+    </div>
+  <% end %>
+    <h2 class="text-xl font-semibold">Title:</h2>
+    <p><%= @article.title %></p>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-semibold">Content:</h2>
+    <p class="text-gray-800 whitespace-pre-line"><%= @article.content %></p>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-semibold">Author:</h2>
+    <p class="text-gray-700"><%= @article.user.email %></p>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-semibold">Report Count:</h2>
+    <p class="text-red-500 font-bold"><%= @article.report_count %></p>
+  </div>
+  
+<%= button_to "Report", report_article_path(@article), method: :post, class: "btn btn-error" %>
+
+  <div class="flex flex-wrap gap-3 mt-6">
+    <% if can? :update, @article %>
+      <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline btn-info" %>
+    <% end %>
+
+    <% if can? :destroy, @article %>
+      <%= button_to "Destroy", @article, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline btn-error" %>
+    <% end %>
+
+    <%= link_to "Back to Articles", articles_path, class: "btn btn-outline" %>
+  </div>
+</div>
