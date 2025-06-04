@@ -1,8 +1,0 @@
-Sat, 31 May 2025 17:48:34 +0300 --info-- CBABank initialized
-Sat, 31 May 2025 17:48:34 +0300 --info-- Processing transaction for User Ali with value -20, User Ali with value -30, User Ali with value -50, User Ali with value -100, User Ali with value -100, User Menna with value -100
-Sat, 31 May 2025 17:48:34 +0300 --info-- User Ali transaction with value -20 succeeded
-Sat, 31 May 2025 17:48:34 +0300 --info-- User Ali transaction with value -30 succeeded
-Sat, 31 May 2025 17:48:34 +0300 --info-- User Ali transaction with value -50 succeeded
-Sat, 31 May 2025 17:48:34 +0300 --warning-- User Ali has 0 balance.
-Sat, 31 May 2025 17:48:34 +0300 --error-- User Ali transaction with value -100 faild with message not enough balnace
-Sat, 31 May 2025 17:48:34 +0300 --error-- User Menna transaction with value -100 failed with message not exist in the bank
